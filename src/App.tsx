@@ -1,18 +1,20 @@
-
+import data from "./data/data.json"
 
 import './App.css'
+import Navbar from "./Components/Navbar"
 
 function App() {
 
+  console.log(data)
 
   return (
     <>
-     
 
-    <h2 className="text-5xl text-green-500">development stack project</h2>
-     
+    <Navbar />
 
       
+
+
     </>
   )
 }
