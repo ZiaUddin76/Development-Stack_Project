@@ -5,13 +5,18 @@ interface AllTechnologyProps {
     technology: Itechnology[];
     stack: Itechnology[];
     handleAddToStack: (tech: Itechnology) => void;
+    handleRemoveFromStack: (id: Itechnology['id']) => void
+    handleRemoveAll: () => void;
 }
 
 
 const AllTechnology = ({
     technology,
     stack,
-    handleAddToStack }: AllTechnologyProps) => {
+    handleAddToStack,
+    handleRemoveFromStack,
+    handleRemoveAll
+}: AllTechnologyProps) => {
     console.log(technology, "all technology")
     return (
 
@@ -71,11 +76,36 @@ const AllTechnology = ({
 
 
             {/* Your Stack */}
-            <div className="w-[220px] h-fit border border-gray-200 rounded-xl p-4 bg-white">
+            <div className="w-[220px] h-fit border
+             border-gray-200 rounded-xl p-4 bg-white">
 
-                <h2 className="text-sm font-semibold text-gray-900">
-                    Your Stack
-                </h2>
+                <div className="flex items-center justify-between">
+
+                    <h2 className="text-sm font-semibold text-gray-900">
+                        Your Stack
+                    </h2>
+
+                    <p className="text-xs text-gray-400 mt-1">
+                        {stack.length === 0
+                        ? "No Technologies Selected" : `${stack.length} ${stack.length === 1
+                         ? "Technology": "Technologies"} Selected ` 
+                         }
+                    </p>
+
+                    {stack.length > 0 && (
+                        <button
+                            onClick={handleRemoveAll}
+                            className="w-full border-gray-200 rounded-lg py-2 mt-3
+                            text-xs text-gray-600"
+                        >
+
+                            Remove All
+
+                        </button>
+                    )}
+
+
+                </div>
 
                 {stack.length === 0 ? (
                     <>
@@ -83,7 +113,9 @@ const AllTechnology = ({
                             No technologies selected yet.
                         </p>
 
-                        <div className="border border-dashed border-gray-200 rounded-lg mt-3 h-14 flex items-center justify-center">
+                        <div className="border border-dashed
+                         border-gray-200 rounded-lg mt-3 h-14 flex
+                          items-center justify-center">
                             <p className="text-xs text-gray-400">
                                 Your stack is empty.
                             </p>
@@ -99,9 +131,33 @@ const AllTechnology = ({
                         <div>
                             {stack.map((tech) => {
                                 return (
-                                    <div key={tech.id}>
-                                        {tech.name}
+                                    <div>
+                                        <div key={tech.id}
+                                            className="flex items-center justify-between
+                                        border border-gray-200 rounded-lg p-3">
+
+
+                                            <div className="flex items-center gap-2">
+                                                <img
+                                                    src={tech.icon}
+                                                    alt={tech.name}
+                                                    className="w-5 h-5"
+                                                />
+                                            </div>
+
+
+                                            <div>
+                                                <p>{tech.name}</p>
+                                                <p>{tech.category}</p>
+                                            </div>
+
+                                        </div>
+
+                                        <button onClick={() => handleRemoveFromStack(tech.id)}>
+                                            X
+                                        </button>
                                     </div>
+
                                 )
                             })}
                         </div>

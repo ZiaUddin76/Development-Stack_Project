@@ -21,6 +21,10 @@ const Technology = ({ technologyPromise }: TechnologyProps) => {
         setStack(stack.filter((tech)=> tech.id !== id));
     };
 
+    const handleRemoveAll = () => {
+        setStack([]);
+    };
+
     return (
         <div>
 
@@ -34,10 +38,12 @@ const Technology = ({ technologyPromise }: TechnologyProps) => {
 
 
 
-            <AllTechnology technology=
-            {technology}
+            <AllTechnology
+            technology={technology}
             handleAddToStack={handleAddToStack}
             stack={stack}
+            handleRemoveFromStack={handleRemoveFromStack}
+            handleRemoveAll={handleRemoveAll}
             />
 
 
