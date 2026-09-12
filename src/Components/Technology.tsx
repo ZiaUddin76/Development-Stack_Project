@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import type { Itechnology } from '../types/technologytype';
 import AllTechnology from './AllTechnology';
 
@@ -10,6 +10,16 @@ interface TechnologyProps {
 const Technology = ({ technologyPromise }: TechnologyProps) => {
     // console.log(technologyPromise);
     const technology = use(technologyPromise);
+    
+    const [stack, setStack] = useState<Itechnology[]>([])
+
+    const handleAddToStack = (tech: Itechnology) => {
+        setStack([...stack, tech]);
+    };
+
+    const handleRemoveFromStack = (id: Itechnology['id']) => {
+        setStack(stack.filter((tech)=> tech.id !== id));
+    };
 
     return (
         <div>
@@ -24,7 +34,11 @@ const Technology = ({ technologyPromise }: TechnologyProps) => {
 
 
 
-            <AllTechnology technology={technology} />
+            <AllTechnology technology=
+            {technology}
+            handleAddToStack={handleAddToStack}
+            stack={stack}
+            />
 
 
         </div>

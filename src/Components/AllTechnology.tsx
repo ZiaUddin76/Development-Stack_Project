@@ -1,7 +1,17 @@
 import React from 'react';
 import type { Itechnology } from '../types/technologytype';
 
-const AllTechnology = ({ technology }: { technology: Itechnology[] }) => {
+interface AllTechnologyProps {
+    technology: Itechnology[];
+    stack: Itechnology[];
+    handleAddToStack: (tech: Itechnology) => void;
+}
+
+
+const AllTechnology = ({
+    technology,
+    stack,
+    handleAddToStack }: AllTechnologyProps) => {
     console.log(technology, "all technology")
     return (
 
@@ -50,7 +60,7 @@ const AllTechnology = ({ technology }: { technology: Itechnology[] }) => {
                                 </span>
                             </div>
 
-                            <button className="w-full bg-[#0d1728] text-white py-2.5 rounded-lg mt-8">
+                            <button onClick={() => handleAddToStack(tech)} className="w-full bg-[#0d1728] text-white py-2.5 rounded-lg mt-8">
                                 Add to Stack
                             </button>
                         </div>
@@ -67,15 +77,41 @@ const AllTechnology = ({ technology }: { technology: Itechnology[] }) => {
                     Your Stack
                 </h2>
 
-                <p className="text-xs text-gray-400 mt-1">
-                    No technologies selected yet.
-                </p>
+                {stack.length === 0 ? (
+                    <>
+                        <p className="text-xs text-gray-400 mt-1">
+                            No technologies selected yet.
+                        </p>
 
-                <div className="border border-dashed border-gray-200 rounded-lg mt-3 h-14 flex items-center justify-center">
-                    <p className="text-xs text-gray-400">
-                        Your stack is empty.
-                    </p>
-                </div>
+                        <div className="border border-dashed border-gray-200 rounded-lg mt-3 h-14 flex items-center justify-center">
+                            <p className="text-xs text-gray-400">
+                                Your stack is empty.
+                            </p>
+
+                        </div>
+
+                    </>
+
+                ) :
+
+
+                    (
+                        <div>
+                            {stack.map((tech) => {
+                                return (
+                                    <div key={tech.id}>
+                                        {tech.name}
+                                    </div>
+                                )
+                            })}
+                        </div>
+                    )
+
+
+
+
+
+                }
 
             </div>
 
