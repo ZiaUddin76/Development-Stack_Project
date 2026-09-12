@@ -65,8 +65,17 @@ const AllTechnology = ({
                                 </span>
                             </div>
 
-                            <button onClick={() => handleAddToStack(tech)} className="w-full bg-[#0d1728] text-white py-2.5 rounded-lg mt-8">
-                                Add to Stack
+
+                            <button
+                                onClick={() => handleAddToStack(tech)}
+                                disabled={stack.some((item) => item.id === tech.id)}
+                                className= {`w-full bg-[#0d1728] text-white py-2.5 rounded-lg mt-8 ${
+                                    stack.some((item) => item.id === tech.id) 
+                                    ? "cursor-not-allowed" : "cursor-pointer"
+                                }` }
+                            >
+                                {stack.some((item) => item.id === tech.id)
+                                    ? "✓ Added to Stack" : "Add to Stack"}
                             </button>
                         </div>
                     )
@@ -81,29 +90,18 @@ const AllTechnology = ({
 
                 <div className="flex items-center justify-between">
 
-                    <h2 className="text-sm font-semibold text-gray-900">
-                        Your Stack
-                    </h2>
+                    <div>
+                        <h2 className="text-sm font-semibold text-gray-900">
+                            Your Stack
+                        </h2>
 
-                    <p className="text-xs text-gray-400 mt-1">
-                        {stack.length === 0
-                        ? "No Technologies Selected" : `${stack.length} ${stack.length === 1
-                         ? "Technology": "Technologies"} Selected ` 
-                         }
-                    </p>
-
-                    {stack.length > 0 && (
-                        <button
-                            onClick={handleRemoveAll}
-                            className="w-full border-gray-200 rounded-lg py-2 mt-3
-                            text-xs text-gray-600"
-                        >
-
-                            Remove All
-
-                        </button>
-                    )}
-
+                        <p className="text-xs text-gray-400 mt-1">
+                            {stack.length === 0
+                                ? "" : `${stack.length} ${stack.length === 1
+                                    ? "Technology" : "Technologies"} Selected `
+                            }
+                        </p>
+                    </div>
 
                 </div>
 
@@ -128,11 +126,11 @@ const AllTechnology = ({
 
 
                     (
-                        <div>
+                        <div className="space-y-2">
                             {stack.map((tech) => {
                                 return (
-                                    <div>
-                                        <div key={tech.id}
+                                    <div key={tech.id}>
+                                        <div
                                             className="flex items-center justify-between
                                         border border-gray-200 rounded-lg p-3">
 
@@ -143,23 +141,49 @@ const AllTechnology = ({
                                                     alt={tech.name}
                                                     className="w-5 h-5"
                                                 />
-                                            </div>
 
 
-                                            <div>
-                                                <p>{tech.name}</p>
-                                                <p>{tech.category}</p>
+                                                <div>
+
+                                                    <p className="text-sm font-medium
+                                                text-gray-900">{tech.name}</p>
+                                                    <p className="text-xs text-gray-400
+                                                mt-0.5">{tech.category}</p>
+                                                </div>
+
                                             </div>
+
+                                            <button className="rounded-lg
+                                             text-xs text-gray-400 hover:text-red-500 "
+                                                onClick={() => handleRemoveFromStack(tech.id)}
+                                            >
+                                                X
+                                            </button>
+
 
                                         </div>
 
-                                        <button onClick={() => handleRemoveFromStack(tech.id)}>
-                                            X
-                                        </button>
+
                                     </div>
 
                                 )
                             })}
+
+                            <div>
+                                {stack.length > 0 && (
+                                    <button
+                                        onClick={handleRemoveAll}
+                                        className="w-full border border-gray-200 rounded-lg py-2 mt-3
+                            text-xs text-gray-600"
+                                    >
+
+                                        Remove All
+
+                                    </button>
+                                )}
+                            </div>
+
+
                         </div>
                     )
 

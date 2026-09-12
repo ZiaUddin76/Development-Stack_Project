@@ -14,6 +14,11 @@ const Technology = ({ technologyPromise }: TechnologyProps) => {
     const [stack, setStack] = useState<Itechnology[]>([])
 
     const handleAddToStack = (tech: Itechnology) => {
+        if(stack.some((item) => item.id === tech.id)) {
+            // alert( `${tech.name} is already in your stack!`)
+            
+            return;
+        }
         setStack([...stack, tech]);
     };
 
