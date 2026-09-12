@@ -5,7 +5,7 @@ const AllTechnology = ({ technology }: { technology: Itechnology[] }) => {
     console.log(technology, "all technology")
     return (
 
-        <div className="flex gap-6">
+        <div className="flex gap-6 px-16">
 
             {/* Technology cards */}
             <div className="grid grid-cols-3 gap-6 flex-1">

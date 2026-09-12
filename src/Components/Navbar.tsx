@@ -4,7 +4,8 @@ const Navbar = () => {
     return (
 
         <div className="px-10 md:px-12 lg:px-16 pt-6 ">
-            <nav className="sticky top-0 flex justify-between items-center border-b border-slate-200/50 px-6 pb-5">
+            <nav className="sticky top-0 flex justify-between items-center 
+            border-b border-slate-200/50 px-6 pb-5">
 
                 <img src="/src/assets/logo-text.png" alt="" />
 
