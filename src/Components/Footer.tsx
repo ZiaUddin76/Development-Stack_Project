@@ -1,4 +1,4 @@
-
+import logo from "../assets/logo-text.png"
 
 const Footer = () => {
     return (
@@ -11,7 +11,7 @@ const Footer = () => {
                 <div>
 
                     <div className="pb-4">
-                        <img src="/src/assets/logo-text.png" alt=""
+                        <img src={logo} alt=""
                             className="" />
                     </div>
 

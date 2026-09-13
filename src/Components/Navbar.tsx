@@ -1,3 +1,6 @@
+import logo from "../assets/logo-text.png"
+
+
 
 const Navbar = () => {
     return (
@@ -6,7 +9,7 @@ const Navbar = () => {
             <nav className="flex justify-between items-center 
             border-b border-slate-200/50 px-6 pb-5">
 
-                <img src="/src/assets/logo-text.png" alt="" />
+                <img src={logo} alt="" />
 
                 <ul className="flex gap-8">
                     <li className="text-[#db2777]"><a href="">Home</a></li>
