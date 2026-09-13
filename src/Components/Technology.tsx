@@ -27,11 +27,16 @@ const Technology = ({ technologyPromise }: TechnologyProps) => {
     };
 
     const handleRemoveFromStack = (id: Itechnology['id']) => {
+        const removedTech = stack.find((tech) => tech.id === id);
+
         setStack(stack.filter((tech) => tech.id !== id));
+
+        toast.success(`${removedTech?.name} removed from your stack!`)
     };
 
     const handleRemoveAll = () => {
         setStack([]);
+        toast.success("All technologies removed from your stack!")
     };
 
     return (
