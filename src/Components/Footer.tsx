@@ -4,8 +4,8 @@ const Footer = () => {
     return (
 
 
-        <div>
-            <div className="px-16 pt-20 pb-15 flex gap-50">
+        <div className="">
+            <div className="px-16 pt-25 pb-15 flex gap-50">
 
                 {/* c1 */}
                 <div>
@@ -85,7 +85,7 @@ const Footer = () => {
 
             {/* bottom */}
 
-            <div className="px-16 pb-10">
+            <div className="px-16 pb-8">
                 <div className="pt-10 flex justify-between text-[#94a3b8]
             border border-[#f1f5f9]">
 

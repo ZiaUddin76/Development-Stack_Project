@@ -41,7 +41,8 @@ const Technology = ({ technologyPromise }: TechnologyProps) => {
             <div className="mt-20 mb-10 px-16">
                 <h2 className="font-bold text-4xl">Explore the
                     <span className="brand-gradient-text "> Technologies</span></h2>
-                <p className="text-[#475569] pt-3">Pick one technology per category to build your ideal stack.</p>
+                <p className="text-[#475569] pt-3">
+                    Pick one technology per category to build your ideal stack.</p>
             </div>
 
 

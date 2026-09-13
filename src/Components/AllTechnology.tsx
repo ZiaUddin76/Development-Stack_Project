@@ -20,7 +20,7 @@ const AllTechnology = ({
     console.log(technology, "all technology")
     return (
 
-        <div className="flex gap-6 px-16">
+        <div className="flex gap-6 px-16 border-b border-gray-200">
 
             {/* Technology cards */}
             <div className="grid grid-cols-3 gap-6 flex-1">
@@ -69,8 +69,10 @@ const AllTechnology = ({
                             <button
                                 onClick={() => handleAddToStack(tech)}
                                 disabled={stack.some((item) => item.id === tech.id)}
-                                className={`w-full bg-[#0d1728] text-white py-2.5 rounded-lg mt-8 ${stack.some((item) => item.id === tech.id)
-                                        ? "cursor-not-allowed" : "cursor-pointer"
+                                className={`w-full bg-[#0d1728] py-2.5 rounded-lg mt-8 
+                                    ${stack.some((item) => item.id === tech.id)
+                                        ? "bg-pink-100 text-pink-600 font-bold cursor-not-allowed" 
+                                        : "text-white cursor-pointer"
                                     }`}
                             >
                                 {stack.some((item) => item.id === tech.id)
@@ -94,7 +96,7 @@ const AllTechnology = ({
                             Your Stack
                         </h2>
 
-                        <p className="text-xs text-gray-400 mt-1">
+                        <p className="text-xs text-gray-400 mt-1 pb-3">
                             {stack.length === 0
                                 ? "" : `${stack.length} ${stack.length === 1
                                     ? "Technology" : "Technologies"} Selected `
@@ -153,7 +155,7 @@ const AllTechnology = ({
                                             </div>
 
                                             <button className="rounded-lg
-                                             text-xs text-gray-400 hover:text-red-500 cursor-pointer"
+                                             text-xs text-gray-400 hover:text-pink-500 cursor-pointer"
                                                 onClick={() => handleRemoveFromStack(tech.id)}
                                             >
                                                 X
@@ -168,12 +170,12 @@ const AllTechnology = ({
                                 )
                             })}
 
-                            <div>
+                            <div className="pt-5 pb-3">
                                 {stack.length > 0 && (
                                     <button
                                         onClick={handleRemoveAll}
-                                        className="w-full border border-gray-200 rounded-lg py-2 mt-3
-                            text-xs text-gray-600 cursor-pointer"
+                                        className="w-full border border-[#ed8c85]-200 rounded-lg py-2 mt-3
+                            text-xs text-[#d82c20] hover:bg-red-50  font-bold cursor-pointer"
                                     >
 
                                         Remove All
