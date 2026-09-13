@@ -69,10 +69,9 @@ const AllTechnology = ({
                             <button
                                 onClick={() => handleAddToStack(tech)}
                                 disabled={stack.some((item) => item.id === tech.id)}
-                                className= {`w-full bg-[#0d1728] text-white py-2.5 rounded-lg mt-8 ${
-                                    stack.some((item) => item.id === tech.id) 
-                                    ? "cursor-not-allowed" : "cursor-pointer"
-                                }` }
+                                className={`w-full bg-[#0d1728] text-white py-2.5 rounded-lg mt-8 ${stack.some((item) => item.id === tech.id)
+                                        ? "cursor-not-allowed" : "cursor-pointer"
+                                    }`}
                             >
                                 {stack.some((item) => item.id === tech.id)
                                     ? "✓ Added to Stack" : "Add to Stack"}
@@ -154,7 +153,7 @@ const AllTechnology = ({
                                             </div>
 
                                             <button className="rounded-lg
-                                             text-xs text-gray-400 hover:text-red-500 "
+                                             text-xs text-gray-400 hover:text-red-500 cursor-pointer"
                                                 onClick={() => handleRemoveFromStack(tech.id)}
                                             >
                                                 X
@@ -174,7 +173,7 @@ const AllTechnology = ({
                                     <button
                                         onClick={handleRemoveAll}
                                         className="w-full border border-gray-200 rounded-lg py-2 mt-3
-                            text-xs text-gray-600"
+                            text-xs text-gray-600 cursor-pointer"
                                     >
 
                                         Remove All

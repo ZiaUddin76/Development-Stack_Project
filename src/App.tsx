@@ -6,6 +6,8 @@ import Hero from "./Components/Hero"
 import Technology from "./Components/Technology"
 import { Suspense } from "react"
 import type{ Itechnology } from "./types/technologytype"
+import Footer from './Components/Footer'
+
 
 
 const technologyFetch = async(): Promise<Itechnology[]> =>{
@@ -40,6 +42,8 @@ function App() {
     <Technology technologyPromise={technologyPromise} />
     
     </Suspense>
+
+    <Footer/>
 
    
 
