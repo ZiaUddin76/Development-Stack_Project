@@ -1,4 +1,4 @@
-import React from 'react';
+
 import type { Itechnology } from '../types/technologytype';
 
 interface AllTechnologyProps {
@@ -47,7 +47,7 @@ const AllTechnology = ({
                                 {tech.name}
                             </h2>
 
-                            <p className="text-sm text-gray-500 mt-2 max-w-[250px]">
+                            <p className="text-sm text-gray-500 mt-2 max-w-62.5">
                                 {tech.description}
                             </p>
 
@@ -86,7 +86,7 @@ const AllTechnology = ({
 
 
             {/* Your Stack */}
-            <div className="w-[220px] h-fit border
+            <div className="w-55 h-fit border
              border-gray-200 rounded-xl p-4 bg-white">
 
                 <div className="flex items-center justify-between">

@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import  { use, useState } from 'react';
 import type { Itechnology } from '../types/technologytype';
 import AllTechnology from './AllTechnology';
 import { Bounce, ToastContainer, toast } from 'react-toastify';
