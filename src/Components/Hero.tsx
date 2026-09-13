@@ -11,9 +11,11 @@ const Hero = () => {
                     <div className="pb-4">
                         <h1 className="font-bold text-4xl">Build Your Ideal</h1>
                         <h1 className="font-bold text-4xl
+                        brand-gradient-text">Development Stack</h1>
+                        {/* <h1 className="font-bold text-4xl
                         bg-gradient-to-r
                         from-orange-500 to-purple-700 bg-clip-text
-                        text-transparent">Development Stack</h1>
+                        text-transparent">Development Stack</h1> */}
                     </div>
 
                     <p className="text-[#475569] ">Explore frontend, backend, database, and tooling options,<br />
@@ -21,14 +23,19 @@ const Hero = () => {
                         next project.</p>
 
                     <div className="pt-6 flex gap-3">
-                        <button className="bg-gradient-to-r from-orange-500 to-pink-500 text-[white] px-3 py-2 rounded-lg hover:opacity-90 ">Explore Technologies</button>
-                        <button  className="border border-gray-300 text-[black] px-10 py-2 rounded-lg hover:opacity-90 ">Learn More</button>
+                        <button className="brand-gradient
+                        text-[white] px-3 py-2 rounded-lg hover:opacity-90 cursor-pointer">
+                            Explore Technologies</button>
+                        <button  className="border border-gray-300 text-[black] 
+                        px-10 py-2 rounded-lg hover:opacity-60 cursor-pointer ">
+                            Learn More</button>
                     </div>
 
                 </div>
 
                 <div className="">
-                    <img src="/src/assets/banner-stack.png" alt="" className="-mt-15 w-[350px] h-[350px] " />
+                    <img src="/src/assets/banner-stack.png" alt="" 
+                    className="-mt-15 w-[350px] h-[350px] " />
                 </div>
 
             </div>
