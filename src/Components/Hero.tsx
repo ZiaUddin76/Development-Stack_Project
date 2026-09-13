@@ -35,7 +35,7 @@ const Hero = () => {
 
                 <div className="">
                     <img src="/src/assets/banner-stack.png" alt="" 
-                    className="-mt-15 w-[350px] h-[350px] " />
+                    className="-mt-15 w-87.5 h-87.5 " />
                 </div>
 
             </div>
